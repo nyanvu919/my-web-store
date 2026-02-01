@@ -3,57 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Store - Cửa Hàng Công Nghệ</title>
+    <title>Glow & Co. | Mỹ phẩm chính hãng</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">M-<span>Store</span></h1>
-            <div class="cart-icon" onclick="toggleCart()">
-                <i data-lucide="shopping-bag"></i>
+    <!-- Header -->
+    <header class="header">
+        <div class="container top-nav">
+            <div class="left-links">
+                <a href="#">Kênh Người Bán</a> | <a href="#">Tải ứng dụng</a> | Kết nối <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i>
+            </div>
+            <div class="right-links">
+                <a href="#"><i class="far fa-bell"></i> Thông báo</a>
+                <a href="#"><i class="far fa-question-circle"></i> Hỗ trợ</a>
+                <a href="#">Đăng Ký</a> | <a href="#">Đăng Nhập</a>
+            </div>
+        </div>
+
+        <div class="container main-header">
+            <div class="logo">
+                <a href="#">Glow & Co.</a>
+            </div>
+            <div class="search-box">
+                <div class="search-wrapper">
+                    <input type="text" placeholder="Đăng ký nhận voucher giảm 50k...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="search-tags">
+                    <a href="#">Son kem lì</a> <a href="#">Tẩy trang</a> <a href="#">Kem chống nắng</a>
+                </div>
+            </div>
+            <div class="cart-icon" onclick="alert('Giỏ hàng demo!')">
+                <i class="fas fa-shopping-cart"></i>
                 <span id="cart-count">0</span>
             </div>
         </div>
-    </nav>
-
-    <header class="hero">
-        <div class="container">
-            <h2>Nâng tầm trải nghiệm</h2>
-            <p>Sản phẩm chính hãng, bảo hành 12 tháng, giao hàng toàn quốc.</p>
-        </div>
     </header>
 
-    <main class="container">
-        <div class="product-grid" id="product-list">
-            <!-- Sản phẩm tự động hiển thị từ app.js -->
-        </div>
-    </main>
-
-    <!-- Giỏ hàng Sidebar -->
-    <div id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Giỏ hàng</h3>
-            <button onclick="toggleCart()" class="close-btn">&times;</button>
-        </div>
-        <div id="cart-items" class="cart-items-list"></div>
-        <div class="cart-footer">
-            <div class="total-row">
-                <span>Tổng cộng:</span>
-                <span id="cart-total" class="price-total">0đ</span>
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Banner Section -->
+        <div class="banner-section">
+            <div class="main-banner">
+                <h2>Siêu Sale 9.9</h2>
             </div>
-            <hr>
-            <h4>Thông tin giao hàng</h4>
-            <input type="text" id="customer-name" placeholder="Họ và tên">
-            <input type="text" id="customer-phone" placeholder="Số điện thoại">
-            <button class="checkout-btn" onclick="sendOrder()">Xác nhận đặt hàng</button>
+            <div class="side-banners">
+                <div class="side-banner top">Banner 1</div>
+                <div class="side-banner bottom">Hàng Mới Về</div>
+            </div>
+        </div>
+
+        <!-- Filter & Product List -->
+        <div class="shop-area">
+            <!-- Sidebar Filter -->
+            <aside class="sidebar">
+                <h3><i class="fas fa-filter"></i> Bộ Lọc Tìm Kiếm</h3>
+                <div class="filter-group">
+                    <h4>Theo Danh Mục</h4>
+                    <ul>
+                        <li class="active">Tất cả</li>
+                        <li>Chăm sóc da mặt</li>
+                        <li>Trang điểm</li>
+                        <li>Nước hoa</li>
+                    </ul>
+                </div>
+                <div class="filter-group">
+                    <h4>Khoảng Giá</h4>
+                    <div class="price-range">
+                        <input type="number" placeholder="₫ TỪ"> - <input type="number" placeholder="₫ ĐẾN">
+                    </div>
+                    <button class="apply-btn">ÁP DỤNG</button>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <main class="product-section">
+                <!-- Sort Bar -->
+                <div class="sort-bar">
+                    <span>Sắp xếp theo</span>
+                    <button class="active">Phổ biến</button>
+                    <button>Mới nhất</button>
+                    <button>Bán chạy</button>
+                    <select>
+                        <option>Giá</option>
+                        <option>Giá: Thấp đến Cao</option>
+                        <option>Giá: Cao đến Thấp</option>
+                    </select>
+                </div>
+
+                <!-- Products -->
+                <div class="product-grid" id="product-list">
+                    <!-- Javascript sẽ render sản phẩm vào đây -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>...</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <h4>CHĂM SÓC KHÁCH HÀNG</h4>
+                <a href="#">Trung tâm trợ giúp</a>
+                <a href="#">Hướng dẫn mua hàng</a>
+            </div>
+            <div>
+                <h4>VỀ GLOW & CO.</h4>
+                <a href="#">Giới thiệu</a>
+                <a href="#">Tuyển dụng</a>
+            </div>
+            <div>
+                <h4>THANH TOÁN</h4>
+                <div class="payment-icons">
+                    <span>VISA</span> <span>MasterCard</span>
+                </div>
+            </div>
+            <div>
+                <h4>THEO DÕI CHÚNG TÔI</h4>
+                <a href="#">Facebook</a> <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 Glow & Co. Tất cả các quyền được bảo lưu.
+        </div>
+    </footer>
+
+    <!-- Chat Bubble -->
+    <div class="chat-bubble">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Admin Button (Nút ảo để mở panel quản lý) -->
+    <button id="admin-toggle-btn" onclick="toggleAdminPanel()">⚙️ Quản lý SP</button>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-panel" class="admin-panel">
+        <h3>Thêm / Sửa Sản Phẩm</h3>
+        <input type="text" id="p-name" placeholder="Tên sản phẩm">
+        <input type="number" id="p-price" placeholder="Giá gốc (VNĐ)">
+        <input type="number" id="p-sale" placeholder="Giá Sale (VNĐ)">
+        <input type="text" id="p-img" placeholder="Link ảnh (hoặc upload bên dưới)">
+        <input type="file" id="p-file" accept="image/*" onchange="handleImageUpload(this)">
+        <div class="admin-actions">
+            <button onclick="saveProduct()" class="save-btn">Lưu Sản Phẩm</button>
+            <button onclick="toggleAdminPanel()" class="close-btn">Đóng</button>
+            <button onclick="resetData()" class="reset-btn" style="background:#555">Reset Demo</button>
         </div>
     </div>
 
     <script src="app.js"></script>
-    <script>lucide.createIcons();</script>
 </body>
 </html>
