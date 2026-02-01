@@ -4,113 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JiaoStore - Mua sắm trực tuyến</title>
-    <!-- CSS Chính -->
     <link rel="stylesheet" href="style.css">
-    <!-- Icon FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Font chữ Google (Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Thư viện Thông báo đẹp (Toastify) -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
-
-    <!-- 1. HEADER (ĐẦU TRANG) -->
+    <!-- Header -->
     <header class="header">
         <div class="container main-header">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html">Jiao<span style="color: #fff;">Store</span></a>
-            </div>
-            
-            <!-- Ô tìm kiếm -->
+            <div class="logo"><a href="index.html">Jiao<span style="color: #fff;">Store</span></a></div>
             <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm sản phẩm tại JiaoStore...">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
                 <button><i class="fas fa-search"></i></button>
             </div>
-
-            <!-- Nút Giỏ Hàng (Dẫn sang trang cart.html) -->
             <div class="cart-btn-wrapper">
-                <a href="cart.html" class="cart-icon">
+                <a href="cart.html" class="cart-icon" style="text-decoration:none; color:white; position:relative; font-size:24px;">
                     <i class="fas fa-shopping-cart"></i>
-                    <!-- Số lượng hiển thị bằng JS -->
                     <span id="cart-count">0</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- 2. BANNER QUẢNG CÁO -->
-    <div class="container">
-        <div class="banner">
-            <div class="banner-content">
-                <h1>Siêu Sale Giữa Tháng</h1>
-                <p>Giảm giá lên đến 50% cho tất cả đơn hàng</p>
-                <button class="banner-btn">Mua Ngay</button>
-            </div>
-        </div>
-    </div>
+    <!-- Banner -->
+    <div class="container"><div class="banner"><div class="banner-content"><h1>Siêu Sale Giữa Tháng</h1><p>Giảm giá 50%</p><button class="banner-btn">Mua Ngay</button></div></div></div>
 
-    <!-- 3. PHẦN DANH SÁCH SẢN PHẨM -->
+    <!-- Product Grid -->
     <main class="container">
-        <div class="section-title">
-            <div class="title-decor"></div>
-            <h2>GỢI Ý HÔM NAY</h2>
-        </div>
-
-        <!-- Lưới sản phẩm (Sẽ được điền tự động bởi app.js) -->
-        <div class="product-grid" id="product-list">
-            <p style="text-align:center; width:100%; color:#999;">Đang tải sản phẩm...</p>
-        </div>
+        <div class="section-title"><h2>GỢI Ý HÔM NAY</h2></div>
+        <div class="product-grid" id="product-list">Loading...</div>
     </main>
 
-    <!-- 4. NÚT QUẢN LÝ (Góc trái dưới) -->
+    <!-- NÚT ADMIN (Nguyên nhân lỗi của bạn là ở đây hoặc JS) -->
     <button id="admin-trigger" onclick="toggleAdminPanel()">
         <i class="fas fa-cog"></i> Quản lý SP
     </button>
 
-    <!-- 5. BẢNG ADMIN (Ẩn/Hiện khi bấm nút) -->
+    <!-- ADMIN PANEL -->
     <div id="admin-panel" class="admin-modal">
         <div class="admin-content">
-            <div class="admin-header">
-                <h3>Thêm Sản Phẩm Mới</h3>
-                <span class="close-modal" onclick="toggleAdminPanel()">&times;</span>
-            </div>
+            <div class="admin-header"><h3>Thêm Sản Phẩm</h3><span class="close-modal" onclick="toggleAdminPanel()">&times;</span></div>
             
-            <!-- Form nhập liệu -->
-            <div class="form-group">
-                <label>Tên sản phẩm</label>
-                <input type="text" id="p-name" placeholder="Ví dụ: iPhone 15 Pro">
-            </div>
-            
+            <div class="form-group"><label>Tên SP</label><input type="text" id="p-name"></div>
             <div class="form-row">
-                <div class="form-group">
-                    <label>Giá gốc (đ)</label>
-                    <input type="number" id="p-old-price" placeholder="200000">
-                </div>
-                <div class="form-group">
-                    <label>Giá bán (đ)</label>
-                    <input type="number" id="p-price" placeholder="150000">
-                </div>
+                <div class="form-group"><label>Giá gốc</label><input type="number" id="p-old-price"></div>
+                <div class="form-group"><label>Giá bán</label><input type="number" id="p-price"></div>
             </div>
-
             <div class="form-group">
-                <label>Hình ảnh</label>
-                <input type="file" id="p-file" accept="image/*">
-                <!-- Khung xem trước ảnh -->
-                <div class="preview-box" id="img-preview" style="margin-top:10px; color:#888; font-size:12px;">
-                    Chưa chọn ảnh
-                </div>
+                <label>Ảnh</label><input type="file" id="p-file" accept="image/*">
+                <div id="img-preview" style="margin-top:5px;"></div>
             </div>
 
             <div class="admin-footer">
-                <button class="btn-reset" onclick="resetData()">Reset Data</button>
-                <button class="btn-save" onclick="saveProduct()">Lưu Sản Phẩm</button>
+                <button class="btn-reset" onclick="resetData()">Reset</button>
+                <button class="btn-save" onclick="saveProduct()">Lưu</button>
             </div>
         </div>
     </div>
 
-    <!-- 6. KẾT NỐI SCRIPT -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="app.js"></script>
 </body>
