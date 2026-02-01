@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Store - Cửa Hàng Công Nghệ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">M-<span>Store</span></h1>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i data-lucide="shopping-bag"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h2>Nâng tầm trải nghiệm</h2>
+            <p>Sản phẩm chính hãng, bảo hành 12 tháng, giao hàng toàn quốc.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-grid" id="product-list">
+            <!-- Sản phẩm tự động hiển thị từ app.js -->
+        </div>
+    </main>
+
+    <!-- Giỏ hàng Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Giỏ hàng</h3>
+            <button onclick="toggleCart()" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Tổng cộng:</span>
+                <span id="cart-total" class="price-total">0đ</span>
+            </div>
+            <hr>
+            <h4>Thông tin giao hàng</h4>
+            <input type="text" id="customer-name" placeholder="Họ và tên">
+            <input type="text" id="customer-phone" placeholder="Số điện thoại">
+            <button class="checkout-btn" onclick="sendOrder()">Xác nhận đặt hàng</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
