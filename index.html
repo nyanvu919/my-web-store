@@ -4,37 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JiaoStore - Mua sắm trực tuyến</title>
+    <!-- CSS Chính -->
     <link rel="stylesheet" href="style.css">
-    <!-- Icon & Font -->
+    <!-- Icon FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Font chữ Google (Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Thư viện thông báo đẹp -->
+    <!-- Thư viện Thông báo đẹp (Toastify) -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- 1. HEADER (ĐẦU TRANG) -->
     <header class="header">
         <div class="container main-header">
+            <!-- Logo -->
             <div class="logo">
-                <a href="#">Jiao<span style="color: #fff;">Store</span></a>
+                <a href="index.html">Jiao<span style="color: #fff;">Store</span></a>
             </div>
             
+            <!-- Ô tìm kiếm -->
             <div class="search-box">
                 <input type="text" placeholder="Tìm kiếm sản phẩm tại JiaoStore...">
                 <button><i class="fas fa-search"></i></button>
             </div>
 
+            <!-- Nút Giỏ Hàng (Dẫn sang trang cart.html) -->
             <div class="cart-btn-wrapper">
-                <div class="cart-icon" onclick="showCartInfo()">
+                <a href="cart.html" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
+                    <!-- Số lượng hiển thị bằng JS -->
                     <span id="cart-count">0</span>
-                </div>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Main Banner -->
+    <!-- 2. BANNER QUẢNG CÁO -->
     <div class="container">
         <div class="banner">
             <div class="banner-content">
@@ -45,24 +51,25 @@
         </div>
     </div>
 
-    <!-- Danh sách sản phẩm -->
+    <!-- 3. PHẦN DANH SÁCH SẢN PHẨM -->
     <main class="container">
         <div class="section-title">
             <div class="title-decor"></div>
             <h2>GỢI Ý HÔM NAY</h2>
         </div>
 
-        <!-- Lưới sản phẩm -->
+        <!-- Lưới sản phẩm (Sẽ được điền tự động bởi app.js) -->
         <div class="product-grid" id="product-list">
-            <!-- Sản phẩm sẽ hiện ở đây -->
+            <p style="text-align:center; width:100%; color:#999;">Đang tải sản phẩm...</p>
         </div>
     </main>
 
-    <!-- Admin Button & Panel -->
+    <!-- 4. NÚT QUẢN LÝ (Góc trái dưới) -->
     <button id="admin-trigger" onclick="toggleAdminPanel()">
         <i class="fas fa-cog"></i> Quản lý SP
     </button>
 
+    <!-- 5. BẢNG ADMIN (Ẩn/Hiện khi bấm nút) -->
     <div id="admin-panel" class="admin-modal">
         <div class="admin-content">
             <div class="admin-header">
@@ -70,6 +77,7 @@
                 <span class="close-modal" onclick="toggleAdminPanel()">&times;</span>
             </div>
             
+            <!-- Form nhập liệu -->
             <div class="form-group">
                 <label>Tên sản phẩm</label>
                 <input type="text" id="p-name" placeholder="Ví dụ: iPhone 15 Pro">
@@ -89,17 +97,20 @@
             <div class="form-group">
                 <label>Hình ảnh</label>
                 <input type="file" id="p-file" accept="image/*">
-                <div class="preview-box" id="img-preview">Chưa chọn ảnh</div>
+                <!-- Khung xem trước ảnh -->
+                <div class="preview-box" id="img-preview" style="margin-top:10px; color:#888; font-size:12px;">
+                    Chưa chọn ảnh
+                </div>
             </div>
 
             <div class="admin-footer">
-                <button class="btn-reset" onclick="resetData()">Reset Demo</button>
+                <button class="btn-reset" onclick="resetData()">Reset Data</button>
                 <button class="btn-save" onclick="saveProduct()">Lưu Sản Phẩm</button>
             </div>
         </div>
     </div>
 
-    <!-- Script -->
+    <!-- 6. KẾT NỐI SCRIPT -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="app.js"></script>
 </body>
