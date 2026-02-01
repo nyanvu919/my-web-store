@@ -170,3 +170,41 @@ body.admin-mode .product-card { border: 1px dashed red; }
     .product-grid { grid-template-columns: repeat(2, 1fr); }
     .banner { height: 180px; }
 }
+
+/* --- CSS RIÊNG CHO TRANG CART.HTML --- */
+.cart-page-layout {
+    display: flex; gap: 20px;
+}
+.cart-col-left { flex: 2; background: white; padding: 20px; border-radius: 4px; box-shadow: 0 1px 1px 0 rgba(0,0,0,.05); }
+.cart-col-right { flex: 1; }
+
+.cart-header-row {
+    display: flex; font-weight: bold; color: #888; padding-bottom: 15px; border-bottom: 1px solid #eee; font-size: 14px;
+}
+.cart-item-row {
+    display: flex; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;
+}
+
+.checkout-box {
+    background: white; padding: 20px; border-radius: 4px; box-shadow: 0 1px 1px 0 rgba(0,0,0,.05); position: sticky; top: 90px;
+}
+.summary-row {
+    display: flex; justify-content: space-between; margin-bottom: 10px; color: #555;
+}
+.summary-row.total { font-weight: bold; color: #333; font-size: 16px; margin-top: 20px; }
+
+.form-delivery { margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 20px; }
+.form-delivery input, .form-delivery textarea {
+    width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; outline: none;
+}
+.btn-checkout-page {
+    width: 100%; background: var(--primary); color: white; border: none; padding: 15px; font-weight: bold; text-transform: uppercase; cursor: pointer; margin-top: 10px;
+}
+.btn-checkout-page:hover { opacity: 0.9; }
+
+@media (max-width: 768px) {
+    .cart-page-layout { flex-direction: column; }
+    .cart-header-row { display: none; } /* Ẩn header bảng trên mobile cho gọn */
+    .cart-item-row { flex-wrap: wrap; }
+    .c-info { width: 100% !important; margin-bottom: 10px; }
+}
