@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng - JiaoStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+
+    <!-- Header tối giản cho trang giỏ hàng -->
+    <header class="header" style="background: white; border-bottom: 1px solid #ddd;">
+        <div class="container main-header">
+            <div class="logo">
+                <a href="index.html" style="color: var(--primary);">JiaoStore <span style="font-weight: 300; color: #333;">| Giỏ Hàng</span></a>
+            </div>
+            <div class="search-box" style="visibility: hidden;"></div> <!-- Giữ chỗ cho layout đẹp -->
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 30px;">
+        <!-- Breadcrumb -->
+        <div style="margin-bottom: 20px;">
+            <a href="index.html" style="color: #666;"><i class="fas fa-arrow-left"></i> Tiếp tục mua sắm</a>
+        </div>
+
+        <div class="cart-page-layout">
+            <!-- Cột trái: Danh sách sản phẩm -->
+            <div class="cart-col-left">
+                <div class="cart-header-row">
+                    <div style="width: 50%;">Sản Phẩm</div>
+                    <div style="width: 15%; text-align: center;">Đơn Giá</div>
+                    <div style="width: 15%; text-align: center;">Số Lượng</div>
+                    <div style="width: 15%; text-align: center;">Thành Tiền</div>
+                    <div style="width: 5%; text-align: right;">🗑</div>
+                </div>
+
+                <div id="cart-list-container">
+                    <!-- JS sẽ điền sản phẩm vào đây -->
+                    <p style="text-align: center; padding: 20px;">Đang tải giỏ hàng...</p>
+                </div>
+            </div>
+
+            <!-- Cột phải: Thanh toán -->
+            <div class="cart-col-right">
+                <div class="checkout-box">
+                    <h3>Thanh Toán</h3>
+                    <div class="summary-row">
+                        <span>Tạm tính:</span>
+                        <span id="temp-total">0đ</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Giảm giá:</span>
+                        <span>0đ</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total">
+                        <span>Tổng cộng:</span>
+                        <span id="final-total" style="color: var(--primary); font-size: 24px;">0đ</span>
+                    </div>
+
+                    <div class="form-delivery">
+                        <label>Thông tin nhận hàng:</label>
+                        <input type="text" id="c-name" placeholder="Họ tên người nhận">
+                        <input type="text" id="c-phone" placeholder="Số điện thoại">
+                        <textarea id="c-address" placeholder="Địa chỉ chi tiết (Số nhà, đường, phường...)"></textarea>
+                    </div>
+
+                    <button class="btn-checkout-page" onclick="processCheckoutPage()">ĐẶT HÀNG</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
