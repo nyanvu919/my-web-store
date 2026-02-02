@@ -379,3 +379,41 @@ body.admin-mode .btn-delete-card { display: block; }
     cursor: not-allowed;
     box-shadow: none;
 }
+
+/* --- NÚT MUA HÀNG TRÊN THẺ SẢN PHẨM --- */
+.add-to-cart-btn {
+    width: 100%;
+    background-color: var(--primary); /* Màu xanh dương đậm */
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--primary-light);
+    opacity: 1;
+    transform: scale(1.02); /* Phóng nhẹ khi chỉ vào */
+}
+
+.add-to-cart-btn i {
+    font-size: 14px;
+}
+
+/* Điều chỉnh lại chi tiết thẻ để nút nằm gọn hơn */
+.p-details {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
