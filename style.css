@@ -341,3 +341,41 @@ body.admin-mode .btn-delete-card { display: block; }
     .cart-right { width: 100%; position: static; margin-top: 20px; }
     .cart-card-header { display: none; }
 }
+
+/* --- NÚT XÁC NHẬN ĐẶT HÀNG SIÊU ĐẸP --- */
+.btn-checkout-page {
+    width: 100%;
+    background-color: var(--primary); /* Màu xanh Navy bạn đã chọn */
+    color: white !important; /* Chữ trắng hoàn toàn */
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 51, 102, 0.2);
+    margin-top: 20px;
+    display: block;
+}
+
+/* Hiệu ứng khi di chuột vào */
+.btn-checkout-page:hover {
+    background-color: #002244; /* Xanh đậm hơn chút */
+    transform: translateY(-2px); /* Bay lên nhẹ */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng khi nhấn vào */
+.btn-checkout-page:active {
+    transform: translateY(0);
+}
+
+/* Khi nút bị khóa (đang gửi đơn hàng) */
+.btn-checkout-page:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
