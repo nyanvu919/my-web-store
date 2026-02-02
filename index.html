@@ -1,25 +1,31 @@
+`html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JiaoStore - Mua sắm trực tuyến</title>
+    <title>JiaoStore - Công Nghệ & Đời Sống</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
+
     <!-- Header -->
     <header class="header">
         <div class="container main-header">
-            <div class="logo"><a href="index.html">Jiao<span style="color: #fff;">Store</span></a></div>
+            <div class="logo">
+                <a href="index.html">Jiao<span style="color: #ffcc00;">Store</span></a>
+            </div>
+            
             <div class="search-box">
                 <input type="text" placeholder="Tìm kiếm sản phẩm...">
                 <button><i class="fas fa-search"></i></button>
             </div>
+
             <div class="cart-btn-wrapper">
-                <a href="cart.html" class="cart-icon" style="text-decoration:none; color:white; position:relative; font-size:24px;">
+                <a href="cart.html" class="cart-icon" style="text-decoration: none; color: white; position: relative; font-size: 24px; display: block;">
                     <i class="fas fa-shopping-cart"></i>
                     <span id="cart-count">0</span>
                 </a>
@@ -28,40 +34,102 @@
     </header>
 
     <!-- Banner -->
-    <div class="container"><div class="banner"><div class="banner-content"><h1>Siêu Sale Giữa Tháng</h1><p>Giảm giá 50%</p><button class="banner-btn">Mua Ngay</button></div></div></div>
+    <div class="container">
+        <div class="banner">
+            <div class="banner-content">
+                <h1 style="color: white;">Đại Tiệc Công Nghệ</h1>
+                <p>Săn deal hot - Giảm tới 50%</p>
+                <button class="banner-btn">Mua Ngay</button>
+            </div>
+        </div>
+    </div>
 
-    <!-- Product Grid -->
+    <!-- Product List -->
     <main class="container">
-        <div class="section-title"><h2>GỢI Ý HÔM NAY</h2></div>
-        <div class="product-grid" id="product-list">Loading...</div>
+        <div class="section-title">
+            <h2>GỢI Ý HÔM NAY</h2>
+        </div>
+
+        <div class="product-grid" id="product-list">
+            <p style="text-align:center; width:100%; color:#999;">Đang tải sản phẩm...</p>
+        </div>
     </main>
 
-    <!-- NÚT ADMIN (Nguyên nhân lỗi của bạn là ở đây hoặc JS) -->
+    <!-- Nút Admin -->
     <button id="admin-trigger" onclick="toggleAdminPanel()">
-        <i class="fas fa-cog"></i> Quản lý SP
+        <i class="fas fa-cog"></i> Admin
     </button>
 
-    <!-- ADMIN PANEL -->
+    <!-- Admin Panel -->
     <div id="admin-panel" class="admin-modal">
         <div class="admin-content">
-            <div class="admin-header"><h3>Thêm Sản Phẩm</h3><span class="close-modal" onclick="toggleAdminPanel()">&times;</span></div>
-            
+            <div class="admin-header">
+                <h3>Thêm Sản Phẩm</h3>
+                <span class="close-modal" onclick="toggleAdminPanel()">&times;</span>
+            </div>
             <div class="form-group"><label>Tên SP</label><input type="text" id="p-name"></div>
             <div class="form-row">
                 <div class="form-group"><label>Giá gốc</label><input type="number" id="p-old-price"></div>
                 <div class="form-group"><label>Giá bán</label><input type="number" id="p-price"></div>
             </div>
-            <div class="form-group">
-                <label>Ảnh</label><input type="file" id="p-file" accept="image/*">
-                <div id="img-preview" style="margin-top:5px;"></div>
-            </div>
-
+            <div class="form-group"><label>Ảnh</label><input type="file" id="p-file" accept="image/*"><div id="img-preview" style="margin-top:5px; font-size:12px"></div></div>
             <div class="admin-footer">
                 <button class="btn-reset" onclick="resetData()">Reset</button>
                 <button class="btn-save" onclick="saveProduct()">Lưu</button>
             </div>
         </div>
     </div>
+
+    <!-- =============== PHẦN FOOTER MỚI THÊM =============== -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <!-- Cột 1: Thông tin chung -->
+            <div>
+                <h3>JIAOSTORE</h3>
+                <p>JiaoStore là nền tảng mua sắm trực tuyến uy tín, chuyên cung cấp các sản phẩm công nghệ và thời trang chính hãng với mức giá tốt nhất.</p>
+                <div style="margin-top: 15px;">
+                    <i class="fab fa-facebook fa-lg" style="margin-right: 15px; cursor: pointer;"></i>
+                    <i class="fab fa-instagram fa-lg" style="margin-right: 15px; cursor: pointer;"></i>
+                    <i class="fab fa-tiktok fa-lg" style="cursor: pointer;"></i>
+                </div>
+            </div>
+
+            <!-- Cột 2: Liên hệ -->
+            <div>
+                <h3>THÔNG TIN LIÊN HỆ</h3>
+                <p><i class="fas fa-map-marker-alt" style="width: 20px;"></i> Tòa nhà Bitexco, Q1, TP.HCM</p>
+                <p><i class="fas fa-phone" style="width: 20px;"></i> Hotline: 1900 1234</p>
+                <p><i class="fas fa-envelope" style="width: 20px;"></i> cskh@jiaostore.vn</p>
+                <p><i class="fas fa-clock" style="width: 20px;"></i> 8:00 - 22:00 (Cả CN & Lễ)</p>
+            </div>
+
+            <!-- Cột 3: Chính sách -->
+            <div>
+                <h3>CHÍNH SÁCH</h3>
+                <ul>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 4: Fanpage / Map (Demo ảnh) -->
+            <div>
+                <h3>THANH TOÁN</h3>
+                <p>Hỗ trợ thanh toán qua:</p>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <div style="background: white; padding: 5px; border-radius: 4px;"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" width="40"></div>
+                    <div style="background: white; padding: 5px; border-radius: 4px;"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" width="40"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 JiaoStore. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- =============== KẾT THÚC FOOTER =============== -->
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="app.js"></script>
