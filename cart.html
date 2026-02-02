@@ -10,7 +10,6 @@
 </head>
 <body style="background-color: #f0f2f5;">
 
-    <!-- Header tối giản -->
     <header class="header-cart">
         <div class="container header-cart-content">
             <a href="index.html" class="logo-cart">Jiao<span>Store</span></a>
@@ -19,13 +18,11 @@
     </header>
 
     <main class="container cart-page-container">
-        <!-- Đường dẫn quay lại -->
         <div class="back-link">
             <a href="index.html"><i class="fas fa-chevron-left"></i> Tiếp tục mua sắm</a>
         </div>
 
         <div class="cart-layout">
-            <!-- CỘT TRÁI: DANH SÁCH SẢN PHẨM -->
             <div class="cart-left">
                 <div class="cart-card">
                     <div class="cart-card-header">
@@ -36,12 +33,11 @@
                         <div style="width: 50px;"></div>
                     </div>
                     <div id="cart-list-container" class="cart-items-list">
-                        <!-- Sản phẩm load từ JS sẽ nằm ở đây -->
+                        <!-- Sản phẩm load ở đây -->
                     </div>
                 </div>
             </div>
 
-            <!-- CỘT PHẢI: THÔNG TIN THANH TOÁN -->
             <div class="cart-right">
                 <div class="cart-card checkout-box">
                     <h3 class="checkout-title">Thông tin giao hàng</h3>
@@ -56,7 +52,7 @@
                         </div>
                         <div class="input-group">
                             <label><i class="fas fa-map-marker-alt"></i> Địa chỉ nhận hàng</label>
-                            <textarea id="c-address" rows="3" placeholder="Số nhà, tên đường, phường/xã..."></textarea>
+                            <textarea id="c-address" rows="3" placeholder="Địa chỉ chi tiết..."></textarea>
                         </div>
                     </div>
 
@@ -72,11 +68,12 @@
                         <hr>
                         <div class="summary-line total-line">
                             <span>Tổng cộng</span>
+                            <!-- ID QUAN TRỌNG: final-total -->
                             <span id="final-total">0đ</span>
                         </div>
                     </div>
 
-                    <button class="btn-order-now" onclick="processCheckoutPage()">
+                    <button class="btn-checkout-page" onclick="processCheckoutPage()">
                         XÁC NHẬN ĐẶT HÀNG
                     </button>
                     <p class="cod-note">(Thanh toán khi nhận hàng - COD)</p>
