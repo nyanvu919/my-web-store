@@ -70,13 +70,152 @@ body { background: var(--bg); color: #333; }
 body.admin-mode .btn-delete-card { display: block; }
 
 /* Footer */
-.footer { background: #fff; padding: 40px 0 20px; margin-top: 50px; border-top: 4px solid var(--primary); }
-.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.footer h3 { font-size: 14px; margin-bottom: 15px; color: #333; }
-.footer p { font-size: 13px; color: #666; line-height: 1.8; }
-.footer-bottom { border-top: 1px solid #eee; margin-top: 30px; padding-top: 20px; text-align: center; font-size: 12px; color: #999; }
-
-@media (max-width: 900px) {
-    .product-grid { grid-template-columns: repeat(2, 1fr); }
-    .sidebar { display: none; }
+/* --- FOOTER SANG TRỌNG --- */
+.footer {
+    background-color: #0b132b; /* Xanh đen cực đậm rất sang */
+    color: #e0e0e0;
+    padding: 70px 0 0;
+    margin-top: 80px;
+    font-size: 14px;
 }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr 1fr; /* Chia tỉ lệ các cột */
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-col h3 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Đường gạch dưới tiêu đề */
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-light);
+}
+
+.footer-logo {
+    font-size: 24px !important;
+    letter-spacing: -1px;
+    margin-bottom: 20px !important;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.footer-desc {
+    line-height: 1.8;
+    color: #a0a0a0;
+    margin-bottom: 25px;
+}
+
+/* Icons mạng xã hội */
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-3px);
+}
+
+/* Danh sách link */
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #a0a0a0;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--white);
+    padding-left: 5px;
+}
+
+/* Thông tin liên hệ */
+.contact-info p {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #a0a0a0;
+}
+
+.contact-info i {
+    color: var(--primary-light);
+    margin-top: 3px;
+}
+
+/* Phương thức thanh toán */
+.payment-methods {
+    display: flex;
+    gap: 15px;
+    font-size: 28px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+/* Phần bản quyền dưới cùng */
+.footer-bottom {
+    background-color: #070d1f;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 13px;
+}
+
+.footer-bottom span {
+    color: var(--white);
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
